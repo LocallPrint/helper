@@ -1,0 +1,29 @@
+variables:
+  BUILD_OUTPUT_BUCKET: locall-print-platform-deploy
+  SOLUTION_NAME: locall-print-platform
+  VERSION: v0.0.1
+
+stages:
+  - build
+  - post_build
+
+build:
+  stage: build
+  image: node:12-alpine
+  before_script:
+    - apk add zip
+  script:
+    - echo "Starting build"
+    - cd deployment && chmod +x ./build-s3-dist.sh && ./build-s3-dist.sh
+    - echo "Build completed"
+  artifacts:
+    paths:
+      - deployment/regional-s3-assets/
+
+post_build:
+  stage: post_build
+  image: xueshanf/awscli
+  script:
+    - echo "Copying S3 assets to /$BUILD_OUTPUT_BUCKET/$SOLUTION_NAME/$VERSION"
+    - aws s3 cp ./deployment/regional-s3-assets/ s3://$BUILD_OUTPUT_BUCKET/$SOLUTION_NAME/$VERSION/ --recursive --acl bucket-owner-full-control
+    - echo "Copying assets to output bucket complete"

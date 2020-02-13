@@ -36,7 +36,8 @@ exports.handler = async (event, context, callback) => {
   });
 
   try {
-    if (event.ResourceType === 'Custom::UpdateUserPoolClientApp') {
+    if ( event.ResourceType === 'Custom::UpdateUserPoolClientApp'
+        || event.ResourceType === 'Custom::UpdateUserPoolMobileClient') {
       if (
         event.RequestType === 'Create'
         || event.RequestType === 'Delete'

@@ -12,7 +12,7 @@ exports.handler = (event, context) => {
   if (event.triggerSource === 'CustomMessage_UpdateUserAttribute')  {
     Logger.log(
         Logger.levels.ROBUST,
-        `Cognito User Pool Client UpdateUserAttribute Initiated: params: ${JSON.stringify(params)}.`
+        `Cognito User Pool Client UpdateUserAttribute Initiated: params: ${JSON.stringify(event)}.`
     );
     const params = {
       UserAttributes: [

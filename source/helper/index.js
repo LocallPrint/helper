@@ -17,7 +17,7 @@ console.log('Loading function');
 
 const url = require('url');
 const requestPromise = require('request-promise');
-const cognitoHelper = require('./lib/cognito-helper');
+const cognitoHelper = require('./lib/helper');
 
 /**
  * Request handler.

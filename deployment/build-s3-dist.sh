@@ -25,3 +25,11 @@ echo "--------------------------------------------------------------------------
 cd $source_dir/helper
 npm run build
 cp ./dist/helper.zip $build_dist_dir/helper.zip
+
+
+echo "------------------------------------------------------------------------------"
+echo "[Rebuild] Resource - Cognito Helper"
+echo "------------------------------------------------------------------------------"
+cd $source_dir/cognito
+npm run build
+cp ./dist/cognito.zip $build_dist_dir/cognito.zip

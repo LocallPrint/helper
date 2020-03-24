@@ -6,9 +6,9 @@ const Logger = require('../utils/logger/logger.common');
 /**
  * Helper function to interact with Cognito for cfn custom resource.
  *
- * @class cognitoHelper
+ * @class helper
  */
-class cognitoHelper {
+class helper {
 
 	updateUserPoolClient(props) {
 		const {ServiceToken, AwsCredentials, ...params} = props;
@@ -34,6 +34,7 @@ class cognitoHelper {
 		});
 		return {result: "Cognito User Pool Client Updated Successfully"};
 	}
+
 }
 
-module.exports = cognitoHelper;
+module.exports = helper;

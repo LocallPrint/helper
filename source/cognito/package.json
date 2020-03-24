@@ -1,0 +1,41 @@
+{
+    "name": "locall-print-platform-helper",
+    "description": "Custom resource helper Lambda function",
+    "main": "index.js",
+    "author": {
+        "name": "aws-solutions-builder"
+    },
+    "version": "0.0.1",
+    "private": true,
+    "dependencies": {
+        "aws-sdk": "^2.602.0",
+        "request": "^2.88.0"
+    },
+    "devDependencies": {
+        "aws-sdk": "^2.602.0",
+        "chai": "^4.2.0",
+        "sinon": "^8.0.4",
+        "sinon-chai": "^3.4.0",
+        "mocha": "^7.0.0",
+        "aws-sdk-mock": "^5.0.0",
+        "npm-run-all": "^4.1.5",
+        "proxyquire": "^2.1.3"
+    },
+    "scripts": {
+        "pretest": "rm -rf package-lock.json && rm -rf dist && npm install",
+        "test": "mocha lib/*.spec.js",
+        "build:init": "rm -rf package-lock.json && rm -rf dist && rm -rf node_modules",
+        "build:zip": "zip -rq cognito.zip . -x template.yml",
+        "build:dist": "mkdir dist && mv cognito.zip dist/",
+        "build": "npm run build:init && npm install --production && npm run build:zip && npm run build:dist"
+    },
+    "bundledDependencies": [
+        "aws-sdk",
+        "moment",
+        "underscore",
+        "password-generator",
+        "uuid",
+        "request-promise",
+        "request"
+    ]
+}

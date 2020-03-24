@@ -3,7 +3,7 @@
 console.log('Loading function');
 
 let AWS = require('aws-sdk');
-const Logger = require('../utils/logger/logger.common');
+const Logger = require('./utils/logger/logger.common');
 
 /**
  * Request handler.

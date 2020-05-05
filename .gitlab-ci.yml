@@ -1,5 +1,5 @@
 variables:
-  BUILD_OUTPUT_BUCKET: locall-print-platform-deploy
+  BUILD_OUTPUT_BUCKET: locall-print-deploy
   SOLUTION_NAME: locall-print-platform
   VERSION: v0.0.1
 
